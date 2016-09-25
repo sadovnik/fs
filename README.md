@@ -1,4 +1,9 @@
 # fs
+[![Build Status](https://travis-ci.org/sadovnik/fs.svg?branch=master)](https://travis-ci.org/sadovnik/fs)
+[![Code Climate](https://codeclimate.com/github/sadovnik/fs/badges/gpa.svg)](https://codeclimate.com/github/sadovnik/fs)
+[![Test Coverage](https://codeclimate.com/github/sadovnik/fs/badges/coverage.svg)](https://codeclimate.com/github/sadovnik/fs/coverage)
+[![Issue Count](https://codeclimate.com/github/sadovnik/fs/badges/issue_count.svg)](https://codeclimate.com/github/sadovnik/fs)
+
 A simple filesystem interface.
 
 ## Install
