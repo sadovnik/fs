@@ -51,14 +51,14 @@ class Fs
      */
     public static function write($path, $content)
     {
-        if (file_exists($path) && !is_writable($path)) {
-            return PermissionDeniedException("$path is not writable");
+        if (file_exists($path) && is_file($path) && !is_writable($path)) {
+            return new PermissionDeniedException("$path is not writable");
         }
 
         $directory = dirname($path);
 
         if (!is_writable($directory)) {
-            return PermissionDeniedException("$directory is not writable");
+            return new PermissionDeniedException("$directory is not writable");
         }
 
         file_put_contents($path, $content);
