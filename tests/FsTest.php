@@ -21,7 +21,7 @@ class FsTest extends TestCase
         $this->root = vfsStream::setUp();
     }
 
-    public function testReadNormal()
+    public function testReadNormalFlow()
     {
         $file = (new vfsStreamFile('some.file'))->withContent('content');
         $this->root->addChild($file);
@@ -61,7 +61,7 @@ class FsTest extends TestCase
         }
     }
 
-    public function testIsDirNormal()
+    public function testIsDirNormalFlow()
     {
         $directory = new vfsStreamDirectory('project');
         $file = new vfsStreamFile('some.file');
@@ -98,4 +98,25 @@ class FsTest extends TestCase
             $this->assertContains('File or directory not found:', $e->getMessage());
         }
     }
+
+    public function testWriteNormalFlow()
+    {
+        $fileContent = 'some content';
+        $url = $this->root->url() . '/result.json';
+        Fs::write($url, $fileContent);
+        $this->assertEquals($fileContent, file_get_contents($url));
+    }
+
+    /* public function testWriteNotWritableError() */
+    /* { */
+    /*     $notReadableDirectory = new vfsStreamDirectory('super-puper-secret-docs', 0000); */
+    /*     $this->root->addChild($notReadableDirectory); */
+    /*     $url = $notReadableDirectory->url() . '/invoice.yml'; */
+    /*     try { */
+    /*         Fs::write($url, 'foo bar'); */
+    /*         $this->fail(); */
+    /*     } catch (PermissionDeniedException $e) { */
+    /*         $this->assertContains('is not writable', $e->getMessages()); */
+    /*     } */
+    /* } */
 }
