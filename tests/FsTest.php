@@ -4,10 +4,13 @@ namespace Fs\Tests;
 
 use PHPUnit\Framework\TestCase;
 
-use org\bovigo\vfs\{ vfsStream, vfsStreamFile, vfsStreamDirectory };
+use org\bovigo\vfs\vfsStream;
+use org\bovigo\vfs\vfsStreamFile;
+use org\bovigo\vfs\vfsStreamDirectory;
 
 use Fs\Fs;
-use Fs\Exceptions\{ IoException, PermissionDeniedException };
+use Fs\Exceptions\IoException;
+use Fs\Exceptions\PermissionDeniedException;
 
 class FsTest extends TestCase
 {
