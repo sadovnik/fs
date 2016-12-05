@@ -21,5 +21,5 @@ Fs::write('some_another.file', 'very important data');
 Fs::isDir('some.file');
 ```
 
-## Requirments
+## Requirements
 * PHP 7
